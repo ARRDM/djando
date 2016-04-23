@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block content %}
+{% for publicacion in pubs %}
+    <div>
+        <p><i>{{publicacion.fecha_publicacion}}</i></p>
+        <p><h3><b>{{publicacion.titulo}}</b></h1></p>
+        <p>{{publicacion.contenido|linebreaks}}</p>
+    </div>
+{% endfor %}
+{% endblock %}
