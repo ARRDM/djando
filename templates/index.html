@@ -1,5 +1,10 @@
 {% extends "layout.html" %}
 {% block content %}
+{% for grupo in grupos %}
+	<div>
+		<p><a href="#">{{grupo.nombre_grupo}}</a></p>
+	</div>
+{% endfor %}
 {% for publicacion in pubs %}
     <div>
         <p><i>{{publicacion.fecha_publicacion}}</i></p>
