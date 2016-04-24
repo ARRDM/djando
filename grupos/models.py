@@ -7,6 +7,9 @@ class Grupo(models.Model):
 	nombre_grupo = models.CharField(max_length=255)
 	fecha_inicio = models.DateTimeField()
 
+	def get_absolute_url(self):
+		return "/people/%i/" % self.id
+
 class Genero(models.Model):
 	grupo = models.ForeignKey(Grupo, on_delete=models.CASCADE)
 	nombre_grupo = models.CharField(max_length=50)

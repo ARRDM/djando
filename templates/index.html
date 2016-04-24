@@ -2,7 +2,7 @@
 {% block content %}
 {% for grupo in grupos %}
 	<div>
-		<p><a href="#">{{grupo.nombre_grupo}}</a></p>
+		<p><a href="{{grupo.get_absolute_url}}">{{grupo.nombre_grupo}}</a></p>
 	</div>
 {% endfor %}
 {% for publicacion in pubs %}
