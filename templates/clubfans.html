@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block content %}
+	{% for g in grupo %}
+    <div>
+		<p>{{g.nombre_grupo}}</p>
+		<p>{{g.fecha_inicio}}</p>
+	</div>
+{% endfor %}
+
+{% endblock %}

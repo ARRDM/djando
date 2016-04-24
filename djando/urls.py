@@ -8,6 +8,7 @@ urlpatterns = patterns('',
     # url(r'^blog/', include('blog.urls')),
 
     url(r'^admin/', include(admin.site.urls)),
-    url(r'', include('grupos.urls'))
+    url(r'', include('grupos.urls')),
+    url(r'^grupo/(\d+)/$', include('grupos.urls'))
 )
 urlpatterns += staticfiles_urlpatterns()
