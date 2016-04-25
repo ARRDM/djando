@@ -3,6 +3,7 @@ from models import Grupo
 from .models import Publicacion
 from django.utils import timezone
 from .forms import PostForm
+from .forms import GrupoForm
 from django.http import HttpResponseRedirect
 
 # Create your views here.
@@ -24,7 +25,19 @@ def post_new(request):
 			publicacion.fecha_publicacion = timezone.now()
 			publicacion.save()
 			return HttpResponseRedirect("/")
-			#return render(request, 'post_edit.html', {'form': form})
 	else:
 		form = PostForm()
 	return render(request, 'post_edit.html', {'form': form})
+
+def grupo_new(request):
+	if request.method == "POST":
+		form = GrupoForm(request.POST)
+		if form.is_valid():
+			grupo = form.save(commit=False)
+			grupo.fecha_inicio = timezone.now()
+			grupo.save()
+			return HttpResponseRedirect("/")
+			#return render(request, 'post_edit.html', {'form': form})
+	else:
+		form = GrupoForm()
+	return render(request, 'grupo_edit.html', {'form': form})
