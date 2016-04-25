@@ -1,15 +1,24 @@
 {% extends "layout.html" %}
 {% block content %}
+
+<h3><i>Grupos nuevos</i></h3>
+
 {% for grupo in grupos %}
 	<div>
 		<p><a href="{{grupo.get_absolute_url}}">{{grupo.nombre_grupo}}</a></p>
+		<hr>
 	</div>
 {% endfor %}
+<br>
+<br>
+<h3><i>Últimas publicaciones de grupos</i></h3>
+<p><a href="/post/new">Crear publicación</a></p>
 {% for publicacion in pubs %}
     <div>
         <p><i>{{publicacion.fecha_publicacion}}</i></p>
         <p><h3><b>{{publicacion.titulo}}</b></h1></p>
         <p>{{publicacion.contenido|linebreaks}}</p>
+        <hr>
     </div>
 {% endfor %}
 {% endblock %}

@@ -3,6 +3,7 @@ from models import Grupo
 from .models import Publicacion
 from django.utils import timezone
 from .forms import PostForm
+from django.http import HttpResponseRedirect
 
 # Create your views here.
 def listarPosts(request):
@@ -22,7 +23,8 @@ def post_new(request):
 			publicacion.autor = request.user
 			publicacion.fecha_publicacion = timezone.now()
 			publicacion.save()
-			return render(request, 'post_edit.html', {'form': form})
+			return HttpResponseRedirect("/")
+			#return render(request, 'post_edit.html', {'form': form})
 	else:
 		form = PostForm()
 	return render(request, 'post_edit.html', {'form': form})
