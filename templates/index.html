@@ -1,25 +1,60 @@
 {% extends "layout.html" %}
 {% block content %}
-<p><a href="/usuario/new">Registrate aquí</a></p>
 
-<h3><i>Grupos nuevos</i></h3>
-<p><a href="/grupo/new">Crear grupo</a></p>
+<div class="container">
+	<div class="row">
+		<br>
+		<div class="col-md-12">
+			<div class="well">
+				<div class="row">
+					<div class="col-md-2 col-md-offset-8">
+						<p><a href="#">Inicia sesión</a></p>
+					</div>
+					<div class="col-md-2">
+						<p><a href="/usuario/new">Registrate aquí</a></p>						
+					</div>
+				</div>
+			</div>
 
-{% for grupo in grupos %}
-	<div>
-		<p><a href="{{grupo.get_absolute_url}}">{{grupo.nombre_grupo}}</a></p>
-	</div>
-{% endfor %}
-<br>
-<br>
-<h3><i>Últimas publicaciones de grupos</i></h3>
-<p><a href="/post/new">Crear publicación</a></p>
-{% for publicacion in pubs %}
-    <div>
-        <p><i>{{publicacion.fecha_publicacion}}</i></p>
-        <p><h3><b>{{publicacion.titulo}}</b></h1></p>
-        <p>{{publicacion.contenido|linebreaks}}</p>
-        <hr>
-    </div>
-{% endfor %}
+			<div class="row">
+				<div class="col-md-3">
+					<div class="well">							
+						<h2><i>Grupos nuevos</i></h2>
+						<p><a href="/grupo/new" class="btn btn-primary btn-block">Crear grupo</a></p>
+
+						{% for grupo in grupos %}
+							<div>
+								<p><a href="{{grupo.get_absolute_url}}" class="btn btn-info btn-block">{{grupo.nombre_grupo}}</a></p>
+							</div>
+						{% endfor %}					
+					</div>
+				</div>
+				<div class="col-md-9">
+					<h1><i>Últimas publicaciones de grupos</i></h1>
+					<p><a href="/post/new" class="btn btn-success btn-large">Crear publicación</a></p>
+					<div class="row">
+								{% for publicacion in pubs %}
+						<div class="col-md-6">
+							<div class="well">						
+								    <div>
+								        <p><i>{{publicacion.fecha_publicacion}}</i></p>
+								        <h3><b>{{publicacion.titulo}}</b></h3>
+								        <p>{{publicacion.contenido|linebreaks}}</p>
+								        <hr>
+								    </div>
+							</div>							
+						</div>
+								{% endfor %}
+						
+						
+					</div>
+				</div>
+			</div>
+			
+
+			<br>
+			<br>
 {% endblock %}
+		</div>
+	</div>
+</div>
