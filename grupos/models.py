@@ -26,7 +26,7 @@ class Album(models.Model):
 	anio = models.DateTimeField()
 
 class Publicacion(models.Model):
-	grupo = models.ForeignKey(Grupo, on_delete=models.CASCADE)
+	grupo = models.ForeignKey(Grupo, on_delete=models.CASCADE, null=True)
 	autor = models.ForeignKey('auth.User', null=True, blank=True)
 	titulo = models.CharField(max_length=200)
 	contenido = models.TextField()
