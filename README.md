@@ -1,15 +1,15 @@
-###Instalación
+#Instalación
 
-###Configuración del ambiente de desarrollo
+#Configuración del ambiente de desarrollo
+####
+	$ virtualenv env
+	$ cd evn
+	$ source bin/activate
+	(evn)$ git clone https://github.com/ARRDM/djando.git
+	(evn)$ cd djando/
+	(evn)$ pip install django==1.9.3
 
-##$ virtualenv env
-  $ cd evn
-  $ source bin/activate
-  (evn)$ git clone https://github.com/ARRDM/djando.git
-  (evn)$ cd djando/
-  (evn)$ pip install django==1.9.3
-
-###Configuración de la base de datos (postgres)
+#Configuración de la base de datos (postgres)
 
 CREATE DATABASE djando
   WITH OWNER = arrdm
@@ -22,6 +22,6 @@ CREATE DATABASE djando
 
 (evn)$ python manage.py migrate
 
-###Ejecución
+#Ejecución
 
 (evn)$ python manage.py runserver
