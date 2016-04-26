@@ -5,10 +5,8 @@ from django.utils import timezone
 from .forms import PostForm
 from .forms import GrupoForm
 from .forms import RegistroForm
-from .forms import InicioSesionForm
 from django.http import HttpResponseRedirect
 from django.contrib.auth import authenticate, login
-
 # Create your views here.
 def listarPosts(request):
 	pubs = Publicacion.objects.order_by('fecha_publicacion')
@@ -56,12 +54,12 @@ def usuario_new(request):
 	return render(request, 'usuario_edit.html', {'form': form})
 
 def iniciarsesion(request):
-	form = InicioSesionForm(request.POST)
-	username = request.POST.get('username')
-	password = request.POST.get('password')
-	user = authenticate(username=username, password=password)
-	if user is not None:
-		if user.is_active:
-			login(request, user)
-			return HttpResponseRedirect("/")
-	return render(request, 'login.html', {'form' : form})
+	if request.method == "POST":
+		username = request.POST.get('username', '')
+		password = request.POST.get('password', '')
+		user = authenticate(username=username, password=password)
+		if user is not None:
+			if user.is_active:
+				login(request, user)
+				return HttpResponseRedirect("/")
+	return render(request, 'login.html')

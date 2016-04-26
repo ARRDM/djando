@@ -2,6 +2,7 @@ from django import forms
 from .models import Publicacion
 from .models import Grupo
 from django.contrib.auth.models import User
+from django.contrib.auth.forms import AuthenticationForm
 
 class PostForm(forms.ModelForm):
 
