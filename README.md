@@ -7,7 +7,7 @@
 	$ source bin/activate
 	(evn)$ git clone https://github.com/ARRDM/djando.git
 	(evn)$ cd djando/
-	(evn)$ pip install django==1.9.3
+	(evn)$ pip install django==1.8
 
 #Configuración de la base de datos (postgres)
 
