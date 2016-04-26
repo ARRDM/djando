@@ -16,11 +16,14 @@
 			</div>
 			<div class="row">
 				<div class="col-md-12 text-center">
-				        <h1>New post</h1>
-				        <form method="POST" class="post-form">{% csrf_token %}
-				            {{ form.as_p }}
-				            <button type="submit" class="save btn btn-primary">Save</button>
-				        </form>
+				        <form action='.' method='post'>{% csrf_token %}
+    						<label for="username">User name:</label>
+    						<input type="text" name="username" value="" id="username">
+    						<label for="password">Password:</label>
+    						<input type="password" name="password" value="" id="password"> 
+    						<input type="submit" value="login" />
+    						<input type="hidden" name="next" value="{{ next|escape }}" />
+  						<form action='.' method='post'>
 				</div>
 			</div>
 

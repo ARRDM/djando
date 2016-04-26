@@ -57,13 +57,11 @@ def usuario_new(request):
 
 def iniciarsesion(request):
 	form = InicioSesionForm(request.POST)
-	username = InicioSesionForm(request.POST.get('username', ""))
-	contrasenia = InicioSesionForm(request.POST.get('password', ""))
-	user = authenticate(username=username, password=contrasenia)
+	username = request.POST.get('username')
+	password = request.POST.get('password')
+	user = authenticate(username=username, password=password)
 	if user is not None:
 		if user.is_active:
 			login(request, user)
 			return HttpResponseRedirect("/")
-		else:
-			form = InicioSesionForm()
 	return render(request, 'login.html', {'form' : form})
